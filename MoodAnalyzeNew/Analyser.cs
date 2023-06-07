@@ -6,12 +6,17 @@ namespace MoodAnalyzeNew
 {
     public class Analyser
     {
+        private string message;
         public string HAPPYMOOD = "Happy";
         public string SADMOOD = "Sad";
-
-        public string AnalyserMood(string mood)
+        public Analyser(string message)
         {
-            if (mood.Contains("Sad"))
+            this.message = message;
+        }
+
+        public string AnalyserMood()
+        {
+            if (this.message.Contains("Sad"))
             {
                 return SADMOOD;
             }

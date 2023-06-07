@@ -9,23 +9,25 @@ namespace TestProject
         [TestMethod]
         public void TestMethod1()
         {
-            Analyser mood = new Analyser();
             string actualresult = "Sad";
+            string message = "I am in Sad Mood";
+            Analyser mood = new Analyser(message);
 
-            string expectedresult = mood.AnalyserMood("i am in Sad Mood");
+            string expectedresult = mood.AnalyserMood();
 
             Assert.AreEqual(actualresult, expectedresult);
         }
         [TestMethod]
         public void TestMethod2()
         {
-            Analyser mood = new Analyser();
             string actualresult = "Happy";
+            string message = "I am in Any Mood";
+            Analyser mood = new Analyser(message);
 
-            string expectedresult = mood.AnalyserMood("i am in Any Mood");
+            string expectedresult = mood.AnalyserMood();
 
             Assert.AreEqual(actualresult, expectedresult);
         }
     }
-    }
 }
+
