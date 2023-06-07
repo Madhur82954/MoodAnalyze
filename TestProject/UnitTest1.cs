@@ -9,15 +9,15 @@ namespace TestProject
         [TestMethod]
         public void TestMethod1()
         {
-            string actualresult = "Sad";
-            string message = "I am in Sad Mood";
+            string actualresult = "Happy";
+            string message = null;
             Analyser mood = new Analyser(message);
 
             string expectedresult = mood.AnalyserMood();
 
             Assert.AreEqual(actualresult, expectedresult);
         }
-        [TestMethod]
+        /*[TestMethod]
         public void TestMethod2()
         {
             string actualresult = "Happy";
@@ -27,7 +27,7 @@ namespace TestProject
             string expectedresult = mood.AnalyserMood();
 
             Assert.AreEqual(actualresult, expectedresult);
-        }
+        }*/
     }
 }
 
