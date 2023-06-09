@@ -18,7 +18,7 @@ namespace MoodAnalyzeNew
         {
             if (string.IsNullOrEmpty(this.message))
             {
-                throw new MoodAnalyserException("MoodAnalysisException");
+                throw new MoodAnalyserException("Empty Mood");
             }
             else if (this.message.Contains("Happy"))
             {
