@@ -13,12 +13,16 @@ namespace MoodAnalyzeNew
             {
                 Type MoodAnalyserType = typeof(Analyser);
                 ConstructorInfo con = MoodAnalyserType.GetConstructor(Type.EmptyTypes);
+                if (con == null)
+                {
+                    throw new Exception("No such Method Error");
+                }
                 Analyser analyser = (Analyser)con.Invoke(null);
                 return analyser;
             }
             catch(TargetInvocationException ex)
             {
-                throw new Exception("No such class Error");
+                throw new Exception("No such Method Error");
             }
         }
     }
