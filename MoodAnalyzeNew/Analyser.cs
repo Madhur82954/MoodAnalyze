@@ -7,22 +7,22 @@ namespace MoodAnalyzeNew
 {
     public class MoodAnalyserFactory
     {
-        public static Analyser CreateMoodAnalyser()
+        public static Analyser CreateMoodAnalyser(string message)
         {
             try
             {
                 Type MoodAnalyserType = typeof(Analyser);
-                ConstructorInfo con = MoodAnalyserType.GetConstructor(Type.EmptyTypes);
+                ConstructorInfo con = MoodAnalyserType.GetConstructor(new[] { typeof(string) });
                 if (con == null)
                 {
-                    throw new Exception("No such Method Error");
+                    throw new MoodAnalyserException("No such Constructor Error");
                 }
-                Analyser analyser = (Analyser)con.Invoke(null);
+                Analyser analyser = (Analyser)con.Invoke(new object[] { message });
                 return analyser;
             }
-            catch(TargetInvocationException ex)
+            catch(TargetException ex)
             {
-                throw new Exception("No such Method Error");
+                throw new Exception("No such Constructor Error");
             }
         }
     }
