@@ -9,10 +9,17 @@ namespace MoodAnalyzeNew
     {
         public static Analyser CreateMoodAnalyser()
         {
-            Type MoodAnalyserType = typeof(Analyser);
-            ConstructorInfo con = MoodAnalyserType.GetConstructor(Type.EmptyTypes);
-            Analyser analyser = (Analyser)con.Invoke(null);
-            return analyser;
+            try
+            {
+                Type MoodAnalyserType = typeof(Analyser);
+                ConstructorInfo con = MoodAnalyserType.GetConstructor(Type.EmptyTypes);
+                Analyser analyser = (Analyser)con.Invoke(null);
+                return analyser;
+            }
+            catch(TargetInvocationException ex)
+            {
+                throw new Exception("No such class Error");
+            }
         }
     }
     public class Analyser
