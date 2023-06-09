@@ -16,18 +16,18 @@ namespace MoodAnalyzeNew
 
         public string AnalyserMood()
         {
-            if (message.Contains("Happy"))
+            if (string.IsNullOrEmpty(this.message))
+            {
+                throw new MoodAnalyserException("MoodAnalysisException");
+            }
+            else if (this.message.Contains("Happy"))
             {
                 return HAPPYMOOD;
             }
 
-            else if (message.Contains("Sad"))
+            else if (this.message.Contains("Sad"))
             {
                 return SADMOOD;
-            }
-            else if (string.IsNullOrEmpty(message))
-            {
-                throw new MoodAnalyserException("MoodAnalysisException");
             }
             else
             {

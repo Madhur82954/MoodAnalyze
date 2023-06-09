@@ -14,7 +14,7 @@ namespace MoodAnalyzeNew
             }
             catch (MoodAnalyserException ex)
             {
-                Console.WriteLine("Error is" + ex.Message);
+                Console.WriteLine("Error : " + ex.Message);
             }
         }
     }
