@@ -20,8 +20,9 @@ namespace MoodAnalyzeNew
                 ConstructorInfo con = MoodAnalyserType.GetConstructor(new[] { typeof(string) });
                 if (con == null)
                 {
-                    throw new MoodAnalyserException("No such Constructor Error");
+                    throw new MoodAnalyserException("No such Method Error");
                 }
+                object[] constructor = new object[] { "Incorrect Parameter" };
                 Analyser analyser = (Analyser)con.Invoke(new object[] { message });
                 return analyser;
             }
