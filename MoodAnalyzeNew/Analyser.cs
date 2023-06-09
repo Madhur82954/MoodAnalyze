@@ -11,7 +11,12 @@ namespace MoodAnalyzeNew
         {
             try
             {
-                Type MoodAnalyserType = typeof(Analyser);
+                string name = "Analyser";
+                Type MoodAnalyserType = Type.GetType(name);
+                if (MoodAnalyserType == null)
+                {
+                    throw new MoodAnalyserException("No such Class Error");
+                }
                 ConstructorInfo con = MoodAnalyserType.GetConstructor(new[] { typeof(string) });
                 if (con == null)
                 {
