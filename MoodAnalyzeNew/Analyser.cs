@@ -1,17 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace MoodAnalyzeNew
 {
+    public class MoodAnalyserFactory
+    {
+        public static Analyser CreateMoodAnalyser()
+        {
+            Type MoodAnalyserType = typeof(Analyser);
+            ConstructorInfo con = MoodAnalyserType.GetConstructor(Type.EmptyTypes);
+            Analyser analyser = (Analyser)con.Invoke(null);
+            return analyser;
+        }
+    }
     public class Analyser
     {
         private string message;
         public string HAPPYMOOD = "Happy";
         public string SADMOOD = "Sad";
-        public Analyser(string message)
+        public Analyser()
         {
-            this.message = message;
+            this.message = "Default mood";
         }
 
         public string AnalyserMood()

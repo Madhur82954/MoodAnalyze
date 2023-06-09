@@ -8,7 +8,7 @@ namespace MoodAnalyzeNew
         {
             try
             {
-                Analyser analyser = new Analyser(null);
+                Analyser analyser = MoodAnalyserFactory.CreateMoodAnalyser();
                 string result = analyser.AnalyserMood();
                 Console.WriteLine(result);
             }
