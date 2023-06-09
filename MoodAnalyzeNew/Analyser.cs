@@ -44,7 +44,21 @@ namespace MoodAnalyzeNew
             {
                 return HAPPYMOOD;
             }
-            
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            Analyser a1 = (Analyser)obj;
+            return message == a1.message;
+        }
+
+        public override int GetHashCode()
+        {
+            return message.GetHashCode();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace TestProject
         [TestMethod]
         public void TestMethod1()
         {
-            Analyser mood = new Analyser("null");
+            Analyser mood = new Analyser();
             string actual = "Happy";
             string expected = mood.AnalyserMood();
             Assert.AreEqual(actual, expected);
