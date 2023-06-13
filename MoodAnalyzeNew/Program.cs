@@ -19,6 +19,10 @@ namespace MoodAnalyzeNew
                 Console.WriteLine("Modified Mood: " + analyser1);
                 Console.WriteLine("Modified Mood: " + analyser1.AnalyserMood());
 
+                MoodAnalyserFactory.SetMoodToNull(analyser1);
+                Console.WriteLine("Modified Mood: " + analyser1);
+                Console.WriteLine("Modified Mood: " + analyser1.AnalyserMood());
+
                 string expectedMood = Mood.Happy.ToString();
                 string actualMood = analyser1.AnalyserMood();
                 if (expectedMood.Equals(actualMood))

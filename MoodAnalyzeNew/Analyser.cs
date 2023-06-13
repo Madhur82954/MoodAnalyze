@@ -61,6 +61,30 @@ namespace MoodAnalyzeNew
                 throw new MoodAnalyserException("No Such Field Error");
             }
         }
+        public static void SetMoodToNull(Analyser moodAnalyzer)
+        {
+            try
+            {
+                Type moodAnalyzerType = moodAnalyzer.GetType();
+                FieldInfo field = moodAnalyzerType.GetField("mood", BindingFlags.Instance | BindingFlags.NonPublic);
+                if (field != null)
+                {
+                    field.SetValue(moodAnalyzer, null);
+                }
+                else
+                {
+                    throw new MoodAnalyserException("No Such Field Error");
+                }
+            }
+            catch (MoodAnalyserException)
+            {
+                throw; 
+            }
+            catch (Exception ex)
+            {
+                throw new MoodAnalyserException("No Such Field Error: ");
+            }
+        }
     }
     public class Analyser
     {
