@@ -52,6 +52,10 @@ namespace MoodAnalyzeNew
                     throw new MoodAnalyserException("No Such Field Error");
                 }
             }
+            catch(MoodAnalyserException)
+            {
+                throw;
+            }
             catch (TargetException ex)
             {
                 throw new MoodAnalyserException("No Such Field Error");
