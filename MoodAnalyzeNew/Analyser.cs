@@ -5,8 +5,8 @@ using System.Text;
 
 namespace MoodAnalyzeNew
 {
-    public class MoodAnalyserFactory
-    {
+        public class MoodAnalyserFactory
+        {
         public static Analyser CreateMoodAnalyser(string message)
         {
             try
@@ -29,6 +29,26 @@ namespace MoodAnalyzeNew
             catch(TargetException ex)
             {
                 throw new Exception("No such Constructor Error");
+            }
+        }
+        public static void ChangeMood(Analyser moodAnalyzer, string newMood)
+        {
+            try
+            {
+                Type moodAnalyzerType = moodAnalyzer.GetType();
+                FieldInfo field = moodAnalyzerType.GetField("mood", BindingFlags.Instance | BindingFlags.NonPublic);
+                if (field != null)
+                {
+                    field.SetValue(moodAnalyzer, newMood);
+                }
+                else
+                {
+                    throw new MoodAnalyserException("No Such Field Error");
+                }
+            }
+            catch (TargetException ex)
+            {
+                throw new MoodAnalyserException("No Such Field Error");
             }
         }
     }

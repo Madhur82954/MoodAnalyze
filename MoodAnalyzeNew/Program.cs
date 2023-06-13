@@ -13,6 +13,11 @@ namespace MoodAnalyzeNew
                 Console.WriteLine("object1 is "+analyser1);
                 Console.WriteLine("object2 is "+analyser2);
                 Console.WriteLine("Object are equal :"+analyser1.Equals(analyser2));
+
+                string newMood = "I am in a sad mood";
+                MoodAnalyserFactory.ChangeMood(analyser1, newMood);
+                Console.WriteLine("Modified Mood: " + analyser1);
+                Console.WriteLine("Modified Mood: " + analyser1.AnalyserMood());
             }
             catch (MoodAnalyserException ex)
             {
