@@ -18,6 +18,17 @@ namespace MoodAnalyzeNew
                 MoodAnalyserFactory.ChangeMood(analyser1, newMood);
                 Console.WriteLine("Modified Mood: " + analyser1);
                 Console.WriteLine("Modified Mood: " + analyser1.AnalyserMood());
+
+                string expectedMood = Mood.Happy.ToString();
+                string actualMood = analyser1.AnalyserMood();
+                if (expectedMood.Equals(actualMood))
+                {
+                    Console.WriteLine("Test Passed: Mood is HAPPY");
+                }
+                else
+                {
+                    Console.WriteLine("Test Failed: Mood is not HAPPY");
+                }
             }
             catch (MoodAnalyserException ex)
             {

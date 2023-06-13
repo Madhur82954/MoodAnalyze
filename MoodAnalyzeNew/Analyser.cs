@@ -5,7 +5,13 @@ using System.Text;
 
 namespace MoodAnalyzeNew
 {
-        public class MoodAnalyserFactory
+    public enum Mood
+    {
+        Happy,
+        Sad,
+        Invalid
+    }
+    public class MoodAnalyserFactory
         {
         public static Analyser CreateMoodAnalyser(string message)
         {
